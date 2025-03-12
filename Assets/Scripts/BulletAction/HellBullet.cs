@@ -1,18 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-public class HellBullet : MonoBehaviour
+namespace BulletAction
 {
-    // Start is called before the first frame update
-    void Start()
+    public class HellBullet : MonoBehaviour, IBulletHandler
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public static event Action OnHellBulletUsed;
+        public void HandleBullet()
+        {
+            OnHellBulletUsed?.Invoke();
+        }
     }
 }

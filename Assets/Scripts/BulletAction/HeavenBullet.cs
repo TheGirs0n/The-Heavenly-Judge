@@ -1,18 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-public class HeavenBulet : MonoBehaviour
+namespace BulletAction
 {
-    // Start is called before the first frame update
-    void Start()
+    public class HeavenBulet : MonoBehaviour, IBulletHandler
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public static event Action OnHeavenBulletUsed;
+        public void HandleBullet()
+        {
+            OnHeavenBulletUsed?.Invoke();
+        }
     }
 }
